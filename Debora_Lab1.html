@@ -1,0 +1,61 @@
+<html>
+    <head>
+    <title>Debora_Lab1</title>
+  
+  <script language="JavaScript" type="text/JavaScript">
+    //Declaring the variable and assigning the value 0 to it
+    var penaltyAmount=0;
+    
+    //Declaring the variable and assigning the value 0 to it
+    var totalAmountOwing=0;
+    
+    do{
+                //1st Declaring the variable, 2d Poping up a dialog asking to fill the field, 
+                //3d Assigning the typed value to the variable and in case the field was not typed, 
+                //so it will be assigned with the default value;
+                var fullName= prompt("Type your full name ", "No Name");
+        if(fullName!=="done"){
+                var address= prompt("Type your Address ", "No Address");
+                var city= prompt("Type your city ", "London");
+                var province= prompt("Type your Province ", "Ontario");
+                var accountBalance= prompt("What is your Account Balance ", 0.0);
+
+
+            //Making a variable a Integer type, instead string
+                accountBalance= parseInt(accountBalance);
+                penaltyAmount=parseInt(penaltyAmount);
+                totalAmountOwing=parseInt(totalAmountOwing);
+
+            //    If the account balance met the following conditions(be between 1 and 999) then the penalty variable will save a percentage, which will be charge at final.
+                if (accountBalance>0 && accountBalance<1000) {
+                    penaltyAmount += (accountBalance*0.02);
+                }
+
+            //    If the account balance met the following conditions(be equal or greater than 1000) then the penalty variable will save a percentage, which will be charge at final.    if(accountBalance>=1000){
+                if(accountBalance>=1000){
+                    penaltyAmount+= (accountBalance*0.03);
+                }
+
+            // The total variable saves the value of account balance plus the charges made(if any)
+            totalAmountOwing= accountBalance+penaltyAmount;
+
+
+            //Concatening and outputing the results
+            document.write("Full Name: "+fullName+"<br>"+"Address: "+address+"<br>"+
+            "City: "+city+"<br>"+"Province: "+province+"<br>"
+            +"Penalty Amount: "+penaltyAmount+"<br>"+"Account Balance: "+accountBalance+"<br>"+"Total Owed: "+totalAmountOwing+"<br>");
+
+            //In case account balance is 0, then this message will be output
+            if(accountBalance===0){
+                document.write("Thank-you for your payment");
+            }
+        }
+    }while(fullName!== "done");
+    </script>
+    </head>
+    <body>
+    </body>
+</html>
+
+
+

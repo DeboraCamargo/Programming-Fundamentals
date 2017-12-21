@@ -1,0 +1,27 @@
+<html>
+<head>
+<title>Shopping</title>
+<script language="JavaScript" type="text/JavaScript">
+var hst=0;
+var Name ="";
+var AmountPurchased = 0;
+
+Name=prompt("Enter your Name");
+AmountPurchased=prompt("Enter the amount of your shoppings");
+
+//Show message
+alert("Amount before taxes is "+AmountPurchased);
+//Calculating the tax in 13%
+hst= AmountPurchased *0.13;
+
+//adding up the tax in the amount
+AmountPurchased+=hst;
+
+//output
+document.write("Your name is "+ Name+" and the total amount plus taxes is "+AmountPurchased);
+</script>
+</head>
+<body></body>
+</html>
+
+

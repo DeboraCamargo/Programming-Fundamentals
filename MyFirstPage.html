@@ -1,0 +1,59 @@
+<html>
+	<head>
+		<title>My First Page</title>
+		<script language="JavaScript" type="text/JavaScript">
+			// create 2 variables
+			// myName is used to store text and myAge is used to store a number
+			var myName = "";
+			var myAge = 0;
+			
+			// ask the user to type their name and assign the
+			// result to myName
+			myName = prompt("Enter your name:", "No Name");
+			
+			// output to the screen the combination of:
+			// "Hello there " + myName + "<br>"
+			// <br> causes a line break to move the cursor to the next line
+			// Example output: Hello there Jimbo
+			
+			document.write("Hello there " + myName + "<br>");
+			
+			// ask the user to type their age
+			myAge = prompt("How old are you?", "99");
+			
+			// convert the text version of myAge to the number version
+			// and assign the result back to the myAge variable
+			// parseInt converts a string (text) number to an actual number
+			// see chapter 28 in the text book
+			myAge = parseInt(myAge);
+			
+			// Example "37" becomes 37
+			// we can only do math calculations with actual numbers 
+			
+			// an alternative method for converting a string to a number
+			// is to multiply the string number by 1
+			// myAge = myAge * 1;
+			
+			// this is an alert statement which just displays the text shown
+			// and then waits for us to press (or click) the OK button
+			alert("You sure don't look like it");
+			
+			// here are some sample calculations followed by a display on the screen
+			// of the result of the calculation
+			var inTenYears = myAge + 10;
+			
+			// display the output by combining "inTenYears: " + inTenyears + "<br>"
+			document.write("inTenYears: " + inTenYears + "<br>");
+			
+			// etc.
+			var tenYearsAgo = myAge - 10;
+			document.write("tenYearsAgo: " + tenYearsAgo + "<br>");
+			var twiceAsOld = myAge * 2;
+			document.write("twiceAsOld: " + twiceAsOld + "<br>");
+			var halfAsOld = myAge / 2;
+			document.write("halfAsOld: " + halfAsOld + "<br>");
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

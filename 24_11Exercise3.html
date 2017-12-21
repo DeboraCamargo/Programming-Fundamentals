@@ -1,0 +1,47 @@
+<html>
+<head>
+    <title>Page Title Here</title>
+    <script language="JavaScript" type="text/JavaScript">
+
+    function VideoType(title, category, cast, price, length){
+        this.title = title;
+        this.category = category;
+        this.price = price;
+        this.length = length;
+        this.cast = cast;
+    }
+    
+    function loadVideos() {
+        var video1 = new VideoType("La vida"," terror",["Debora", "julia","Maria"], 15.45,133);
+        var video2 = new VideoType("La muerte"," comedy",["Carlos", "Mariana","Carolina"], 20,230);
+        outputVideos(video1, video2);
+
+    }
+
+    function outputVideos(v1, v2){
+        var output0 = v1.title+"<br>"+v1.category+"<br>"+v1.cast+"<br>"+v1.price+"<br>"+v1.length;
+        var output1 = v2.title+"<br>"+v2.category+"<br>"+v2.cast+"<br>"+v2.price+"<br>"+v2.length;
+
+        //
+var vetor = [];
+
+for(var i=0; i<=1; i++){
+    var varibleName = "output"+i;
+    vetor[i] =varibleName.value;
+//
+}
+
+
+
+        document.getElementById("outputStuff").innerHTML= output0+"<br>";
+    }
+
+    </script>
+</head>
+<body>
+    <input type="button" id="btnLoadVideos" class="BtnButton" onclick="loadVideos();" value="Load"/>
+    <br /><br />
+    <div id="outputStuff"></div>
+</body>
+</html>
+

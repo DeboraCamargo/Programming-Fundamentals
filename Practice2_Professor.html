@@ -1,0 +1,86 @@
+<html>
+	<head>
+		<title>Practice #2</title>
+		<style type="text/css">
+			body {
+				background-color:ButtonFace;
+			}
+
+			.TxtBox {
+				font-family: Verdana, Arial, Helvetica;
+				font-size: 8pt;
+				color: black;
+				height: 19px;
+				background-color: white;
+				border: 1px solid #07A2FE;
+			}
+			.BtnButton {
+				font-family: Verdana, Arial, Helvetica;
+				font-size: 8pt;
+				color: black;
+				height: 24px;
+				cursor: pointer;
+			}
+		</style>
+		<script language="JavaScript" type="text/JavaScript">
+			
+			function display() {
+				var combined = "";
+				if (document.getElementById("chkInfo1").checked === true) {
+					combined = document.getElementById("txtInfo1").value + " ";
+				}
+				if (document.getElementById("chkInfo2").checked === true) {
+					combined += document.getElementById("txtInfo2").value + " ";
+				}
+				if (document.getElementById("chkInfo3").checked === true) {
+					combined += document.getElementById("txtInfo3").value;
+				}
+				
+				if (combined !== "") {
+					var wordArray = combined.split(" ");
+					var longest = 0;
+					var longestWord = "";
+					
+					for (var i = 0; i < wordArray.length; i++) {
+						var currentLong = wordArray[i].length;
+						
+						if (currentLong > longest) {
+							longest = currentLong;
+							longestWord = wordArray[i];
+						}
+					}
+					
+					document.getElementById("outputStuff").innerHTML = longestWord;
+				}
+			}
+			
+		</script>
+	</head>
+	<body>
+		<div>Textbox #1</div>
+		<input type="text" id="txtInfo1" class="TxtBox" style="width:200px" value="The quick brown fox" />
+		<input type="checkbox" id="chkInfo1" />
+		<br /><br />
+		<div>Textbox #2</div>
+		<input type="text" id="txtInfo2" class="TxtBox" style="width:200px" value="jumped over the" />
+		<input type="checkbox" id="chkInfo2" />
+		<br /><br />
+		<div>Textbox #3</div>
+		<input type="text" id="txtInfo3" class="TxtBox" style="width:200px" value="lazy dog's back" />
+		<input type="checkbox" id="chkInfo3" />
+		<br /><br />
+		<div id="outputStuff"></div>
+		<br /><br />
+		<input type="button" id="btnDisplay" class="BtnButton" onclick="display();" value="Display"/>
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
+

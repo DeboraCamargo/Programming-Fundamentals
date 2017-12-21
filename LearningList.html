@@ -1,0 +1,119 @@
+<html>
+	<head>
+		<title>Lab #5</title>
+		<style type="text/css">
+			body {
+				background-color:lightblue;
+				background-image: url("pictures/wallpaper.jpg");
+			}
+
+			.BtnButton {
+				font-family: Verdana, Arial, Helvetica;
+				font-size: 8pt;
+				color: black;
+				height: 24px;
+				cursor: pointer;
+			}
+			.DivOutput {
+				font-family: Verdana, Arial, Helvetica;
+				font-size: 10pt;
+				color: black;
+				background-color:aliceblue;
+				position: absolute;
+				left: 200px;
+				top: 10px;
+				width: 150px;
+			}
+			.SelType {
+				font-family: Verdana, Arial, Helvetica;
+				font-size: 11pt;
+				border: 1px solid #07A2FE;
+				color: black;
+				background-color:aliceblue;
+				height: 25px;
+				text-align: left;
+			}
+		</style>
+		<script language="JavaScript" type="text/JavaScript">			
+
+			// constructor function
+			function InvType(prodId, supplierCode, description, pictureName, qtyOnHand, price, dateCreated) {
+				// month array
+				var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+				
+				// map parameter values to properties
+				this.prodId = prodId;
+				this.supplierCode = supplierCode;
+				this.description = description;
+				this.pictureName = pictureName;
+				this.qtyOnHand = qtyOnHand;
+				this.price = price;
+				
+				// use the current date to add the final dateCreated property
+				var now = new Date();
+				var xMonth = now.getMonth();
+				this.dateCreated = months[xMonth] + " " + now.getDate() + ", " + now.getFullYear();
+			}
+			
+			var inventory = [];
+			inventory[0] = new InvType(1002, "s1001", "Koalas", "Koala.jpg", 9, 119.95);
+			inventory[1] = new InvType(1003, "s1002", "Tulips", "Tulips.jpg", 9, 7.95);
+			inventory[2] = new InvType(1004, "s1003", "Penguins", "Penguins.jpg", 9, 127.95);
+
+			// startup function (onload)
+			function init() {
+				document.getElementById("myList").options[0] = new Option("Koalas", 1);
+				document.getElementById("myList").options[1] = new Option("Tulips", 2);
+				document.getElementById("myList").options[2] = new Option("Penguins", 3);
+				
+				for (var i = 0; i < inventory.length; i++) {
+					var text = "<br> " + inventory[i].prodId + "<br>" + inventory[i].supplierCode + "<br>" + inventory[i].description + "<br>" + inventory[i].pictureName + "<br>" + inventory[i].qtyOnHand + "<br>" + inventory[i].price + "<br>" + inventory[i].dateCreated;
+					document.getElementById("outputStuff").innerHTML += text;
+				}
+			}
+			
+			function selectionMade() {
+				var ref = document.getElementById("myList");
+				
+				var x = ref.selectedIndex;
+				var listText = ref.options[x].text;
+				var listValue = ref.options[x].value;
+				
+				getData(listText);
+			}
+			
+			
+			// event handler to display designated object data
+			function getData(param) {
+				var text = param.value;
+				
+				if (text === undefined){
+					text = param;
+				}
+				
+				if (text === "Koalas") {
+					//text += "<br> " + koala.prodId + "<br>" + koala.supplierCode + "<br>" + koala.description + "<br>" + koala.pictureName + "<br>" + koala.qtyOnHand + "<br>" + koala.price + "<br>" + koala.dateCreated;
+					document.getElementById("pics").src = "pictures/" + inventory[0].pictureName;
+				}
+				else if (text === "Tulips") {
+					//text += "<br> " + tulip.prodId + "<br>" + tulip.supplierCode + "<br>" + tulip.description + "<br>" + tulip.pictureName + "<br>" + tulip.qtyOnHand + "<br>" + tulip.price + "<br>" + tulip.dateCreated;
+					document.getElementById("pics").src = "pictures/" + inventory[1].pictureName;
+				}
+				else {
+					//text += "<br> " + penguin.prodId + "<br>" + penguin.supplierCode + "<br>" + penguin.description + "<br>" + penguin.pictureName + "<br>" + penguin.qtyOnHand + "<br>" + penguin.price + "<br>" + penguin.dateCreated;
+					document.getElementById("pics").src = "pictures/" + inventory[2].pictureName;
+				}
+				
+				// output accumulated information
+				document.getElementById("outputStuff").innerHTML = text;
+			}
+		</script>
+	</head>
+	<body onload="init();">
+		<select id="myList" class="SelType" onchange="selectionMade();">
+		</select>
+		<br /><br />
+		<div id="outputStuff" class="DivOutput"></div>
+		<img id="pics" src="">
+	</body>
+</html>

@@ -1,0 +1,80 @@
+<html>
+    <head>
+    <title>daily work order maintenance log</title>
+    
+    <script language="JavaScript" type="text/JavaScript">
+
+    // Title of the page
+    document.write("Daily Maintenance Register Summary"+"<br>");
+
+//Declaring variables
+    var ValidationCustomerType = 0;
+    var workerNumber = 0;
+    var totalAmount =0;
+    var gold=0;
+    var silver =0;
+    var bronze =0;
+
+// Must keep going until the amount typed be equal to -1
+    do{
+
+//Declaring the variable and attribuiting a value to it and the default
+    var workOrdersAmount=prompt("Enter the invoice dollar amount", 0.0);
+// The content of the variable must to be an integer
+    workOrdersAmount=parseInt(workOrdersAmount);
+        
+// stablishing the condition
+        if(workOrdersAmount!==-1){
+            
+                totalAmount+=workOrdersAmount;
+                workerNumber++;
+
+                do{
+                    var hoursRequired=prompt("Enter the hours worked", 0);
+                    hoursRequired=parseInt(hoursRequired);
+                    if(hoursRequired<0){
+                        alert("hour invalid");
+                    }
+                } while(hoursRequired<0);
+                
+                do{
+                    var customerType=prompt("Enter the customer type as gold, silver or bronze using ‘G’ ‘S’ or ‘B’ ", "B");
+                            if (customerType !== "G" && customerType !== "S" && customerType !== "B" ) {
+                                alert("Invalid Type of customer");
+                                ValidationCustomerType = 1; 
+                            }else{
+                                ValidationCustomerType = 0;
+                            }
+                } while(ValidationCustomerType!== 0);
+
+                if(customerType==="G"){
+                    gold++;
+                }else if(customerType==="S"){
+                    silver++;
+                }else if(customerType==="B"){
+                    bronze++;
+                }
+
+                if(customerType === "G"){
+                    //document.write("Discount of 7%"+"<br>");
+                    workOrdersAmount = workOrdersAmount -(workOrdersAmount * 0.07);
+                }
+
+                if(customerType === "S"){
+                    //document.write("Discount of 5%"+"<br>");
+                    workOrdersAmount = workOrdersAmount -(workOrdersAmount * 0.05);
+                }
+        }
+    } while (workOrdersAmount !== -1);
+
+document.write("Total number of work orders "+ workerNumber+"<br>");
+document.write("Total value of all work orders "+totalAmount+"<br>");
+document.write("Average value of each work order "+(workerNumber/totalAmount)+"<br>");
+document.write("Number of gold customer work orders "+gold+"<br>");
+document.write("Number of silver customer work orders "+silver+"<br>");
+document.write("Number of bronze customer work orders "+bronze+"<br>");
+
+    </script>
+    </head>
+    <body></body>
+</html>

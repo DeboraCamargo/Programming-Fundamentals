@@ -1,0 +1,36 @@
+<html>
+<head>
+    <title> Contacts </title>
+        <script language="JavaScript" type="text/JavaScript">
+        var aux = true;
+                var Name ="";
+                var tel = "";
+                var cel = "";
+                Name=prompt("Name");
+                while (aux==true) {
+                        tel=prompt("Telefone Number");
+                        if (tel.length > 11) {
+                                alert("This is not a valid telephone number");
+                                aux=true;
+                        
+                        }else{
+                        aux=false;
+                        }      
+                }
+                aux = true;
+                while (aux==true) {
+                        cel=prompt("Celphone number");
+                        if (cel.length > 11) {
+                                alert("This is not a valid cell number");
+                                aux=true;
+                        
+                        }else{
+                        aux=false;
+                        }      
+                }
+                document.write("keep coding");
+                
+        </script>
+</head>
+<body></body>
+</html>

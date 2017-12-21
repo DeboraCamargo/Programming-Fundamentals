@@ -1,0 +1,55 @@
+
+<html>
+	<head>
+		<title>Lab #4</title>
+		<style type="text/css">
+        body {
+            background-color: #e6f2ff;
+        }
+		</style>
+		<script language="JavaScript" type="text/JavaScript">
+			var name2 = [];
+			function addName () { 
+				//var name ="";
+				//var nameArray = [];
+				if ( name2[0]!==""){
+					name2[name2.length] = document.getElementById("txtName").value;
+
+					var textNameGet = document.getElementById("txtName").value;
+					document.getElementById("newName").innerHTML+= textNameGet +"<br>";
+				}
+				if(name2[0]===""){
+					name2[0] = document.getElementById("txtName").value;
+					document.getElementById("newName").innerHTML+= textNameGet +"<br>";
+				}
+				//else ( name.length === 6){
+				//	name = document.getElementById("txtName").value + " ";
+				//	document.getElementById("newName").innerHTML += name + "<br>";
+					//var count = name.length;
+				//}
+				//document.write("<br>And the winner is " + nameFinal + "<br>");
+			}
+			function pickName (){
+				var count = name2.length;
+				var pick = Math.floor(Math.random() * count);
+				var text = name2[pick];
+				//if ( name === 6){
+					//name = document.getElementById("txtName").value + " ";
+				//}
+			document.getElementById("newName").innerHTML += "And the winner is " + text + "<br>";
+			}
+		</script>
+	</head>
+	<body>
+		<div> Next Name </div>
+		<input type="text" id="txtName" class="TxtBox" value="No name" />
+		<br /><br />
+		<input type="button" onclick="addName();" value="Add Name"/><br /><br />
+		<input type="button" onclick="pickName();" value="Pick Name"/>
+		<div id="newName"></div>
+	</body>
+
+</html
+    
+    
+    

@@ -1,0 +1,55 @@
+<html>
+    <head>
+    <title>Fitness Club #1</title>
+    <script language="JavaScript" type="text/JavaScript">
+    
+    document.write("London Fitness Club Membership Enrollments");
+
+var totalPeople = 0;
+var average = 0;
+var allages =0;
+//Loop continuously through the data entry cycle until the user enters an age of -1.
+do{
+
+            var fullName= prompt("Type your full name ", "No Name");
+            var age = prompt("Enter your age: ", "29");
+            age=parseInt(age);
+            var sex = prompt("Enter the new member sex as M or F: ", "F");
+
+//            If the member sex is not entered correctly, output the message "Member sex was not entered in
+//            the correct format, please redo the data entry"
+
+                    if(sex !== "M" && sex !== "F") {
+                        document.write("Member sex was not entered in the correct format, please redo the data entry");
+                    }
+
+//             If the member is female and under 30 years old output the message "Member is eligible for the
+//             under 30 female athlete discount"
+
+//                If the member is male and under 35, output the message "Member is eligible for the under 35
+//                male athlete discount"
+
+                    if( sex === "F" && age <30){
+                        document.write("Member is eligible for the under 30 female athlete discount"+"<br><br>");
+                    }else if(sex === "M" && age <35){
+                    document.write("Member is eligible for the under 35 male athlete discount"+"<br><br>");
+                    
+                    }else if(age>60){
+                        document.write("Member is eligible for the master discount program"+"<br><br>");
+
+                    }
+
+totalPeople+=totalPeople;
+allages+=age;
+
+} while (age === -1);
+
+document.write("Total "+totalPeople+"<br>");
+document.write("Average "+(allages/totalPeople)+"<br>");
+
+    </script>
+    </head>
+    <body></body>
+</html>
+    
+    

@@ -1,0 +1,44 @@
+<html>
+    <head></head>
+    <title> Exercise 1 week 2</title>
+    <script language="JavaScript" type="text/JavaScript">
+    var name= prompt("Type your name ", "no name");
+    var accountNumber=prompt("Type the number of your account ", 80);
+    var amountPurchased= prompt("Type how much you have purchased in terms of money ", 0);
+
+var originalAmPur = amountPurchased;
+var amountDiscount = 0;
+var accountDiscount = 0;
+
+    if (amountPurchased>100) {
+
+        amountDiscount = amountPurchased*0.1;
+        amountPurchased = amountPurchased - (amountPurchased * 0.1);
+        
+    }
+
+    if(accountNumber<10000){
+        accountDiscount = amountPurchased*0.15;
+        amountPurchased = amountPurchased - (amountPurchased * 0.05);
+    }
+
+var hst = amountPurchased * 0.13;
+amountPurchased = amountPurchased+(amountPurchased*0.13);
+
+document.write(name+ " owes:"+"<br>"+ "Original Amount: "+originalAmPur+"<br>"+ "Amount Discount: "+ amountDiscount+"<br>"+"Account Discount: "
++accountDiscount+"<br>"+"HST: "+hst+"<br>"+"Total: "+amountPurchased);
+
+    </script>
+    <body></body>
+</html>
+
+
+
+ ***         ///
+(*_*)       (+_+)
+~~|~~       ~~|~~
+ _|_         _|_
+
+Alive        Dead
+
+

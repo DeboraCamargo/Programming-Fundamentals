@@ -1,0 +1,78 @@
+<html>
+    <head>
+    <title>Practice 1</title>
+    <style type="text/css">
+        body{
+            background-color: #5E16E4;
+        }
+        .TxtBox{
+            font-family: Verdana, Arial, Helvetica;
+            /*font-size: 30pt;*/
+            color: #F02727;
+            background-color: #90DB9A;
+            border: 1px solid #E20E19;
+        
+        }
+        .BtnButton{
+            background-color: #D31515;
+            border: 5px solid #161414;
+            display: inline-block;
+            font-size: 50px;
+            border-radius: 40%;
+        }
+        .BtnButton:hover {
+            background-color: #4CAF50; /* Green */
+            color: white;
+        }
+        .div{
+            font-family: Verdana, Arial, Helvetica;
+            font-size: 15pt;
+        }
+        </style>
+      
+    <script language="JavaScript" type="text/JavaScript">
+    
+             var NamesArr = [];
+
+                function AddName(){
+                        
+                        if(NamesArr[0]!==""){
+                            NamesArr[NamesArr.length]= document.getElementById("txtNextName").value;
+    
+                            
+                            var show = document.getElementById("txtNextName").value;
+                            document.getElementById("NamesList").innerHTML += "Name: " + show + "<br>"; 
+                        }else{
+                            NamesArr[0]= document.getElementById("txtNextName").value;
+                           
+                           //var show2 = document.getElementById("txtNextName").value;
+                            document.getElementById("NamesList").innerHTML += "Name: " + show + "<br>"; 
+                            
+                        }
+                
+                }
+
+                function PickName(){
+
+                    var pick = (Math.floor(Math.random() * NamesArr.length));
+                    var name = NamesArr[pick];
+                    document.getElementById("NamesList").innerHTML += "And the Winer is: " + name + "<br>"; 
+
+                }
+
+    </script>
+    </head>
+    <body>
+        <div class="div">Next Name</div>
+        <input type="text" id="txtNextName" class="TxtBox" style="width:200px" value="No Name" />
+        <br /><br />
+        <input type="button" id="btnAdd" class="BtnButton" onclick="AddName();" value="Add Name"/>
+        <br /><br />
+        <input type="button" id="btnPick" class="BtnButton" onclick="PickName();" value="Pick Name"/>
+        <br /><br />
+        <div id="NamesList"></div>  
+    </body>
+    </html>
+    
+    
+    

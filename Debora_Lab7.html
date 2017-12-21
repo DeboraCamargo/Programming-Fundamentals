@@ -1,0 +1,180 @@
+<html>
+<head>
+	<title>Body by Jimbo – Membership</title>
+	<style type="text/css">
+		body {
+			background-color: lightblue;
+		}
+
+		.BtnButton {
+			font-family: Verdana, Arial, Helvetica;
+			font-size: 8pt;
+			color: black;
+			height: 24px;
+			cursor: pointer;
+		}
+
+		.DivContainer {
+			font-family: Verdana, Arial, Helvetica;
+			font-size: 10pt;
+			color: black;
+			background-color: aliceblue;
+			border: 1px solid #07A2FE;
+			position: absolute;
+			left: 10px;
+			top: 10px;
+			width: 300px;
+			height: 400px;
+			padding: 10px;
+		}
+
+		.DivOutput {
+			font-family: Verdana, Arial, Helvetica;
+			font-size: 10pt;
+			color: black;
+			background-color: #FECDCD;
+			border: 1px solid red;
+			position: absolute;
+			left: 10px;
+			bottom: 10px;
+			width: 280px;
+			height: 50px;
+			padding: 10px;
+		}
+
+		.SelType {
+			font-family: Arial;
+			font-size: 11pt;
+			border: 1px solid #07A2FE;
+			background-color: #DADADA;
+			color: black;
+			height: 25px;
+			text-align: left;
+		}
+	</style>
+	<script language="JavaScript" type="text/JavaScript">
+			function startMeUp() {	
+				// showing the years			
+					//var index = 0;
+					var coisa = document.getElementById("lstYears").options;
+					for(var i=1940; i<=2000; i++){
+						coisa.add(new Option(i));
+
+					//document.getElementById("lstYears").options[index] = new Option(i);
+					//index = index+1;
+				}
+		
+		//starting the days
+				for (var i = 0; i < 31; i++) {
+					var day = i + 1;
+					
+					if (day < 10) {
+						day = "0" + day;
+					}
+					document.getElementById("lstDays").options[i] = new Option(day);
+				}
+		}
+		
+			
+			function submitMembership() {
+				// get the text and value of selected month
+				var ref = document.getElementById("lstMonths");
+				var listMonth = ref.options[ref.selectedIndex].text;
+				var listMonthV = ref.options[ref.selectedIndex].value;
+				
+				// Get the variable and turning it into integer
+				listMonthV = parseInt(listMonthV);
+				
+				// get the text of selected day
+				ref = document.getElementById("lstDays");
+				var listDay = ref.options[ref.selectedIndex].text;
+				
+				// get the text of selected year
+				ref = document.getElementById("lstYears");
+				var listYear = ref.options[ref.selectedIndex].text;
+				
+				//concatenating the 3 pieces of date and outputting it
+				var birthDate = listMonth + " " + listDay + ", " + listYear;
+				document.getElementById("outputStuff").innerHTML = birthDate + "<br>";
+				
+				// get the membership previously selected
+				ref = document.getElementById("membershiptype");
+				var membershipLevel = ref.options[ref.selectedIndex].text;
+
+				switch (membershipLevel) {
+					case "Fitness Wimp" :
+						document.getElementById("outputStuff").innerHTML += "Good luck you'll need it";
+						break;
+					case "Almost Healthy" :
+						document.getElementById("outputStuff").innerHTML += "Hope you can get there";
+						break;
+					case "Healthy" :
+						document.getElementById("outputStuff").innerHTML += "Glad to have you on the team";
+						break;
+					case "Super Jock" :
+						document.getElementById("outputStuff").innerHTML += "Go for it";
+						break;
+					default:
+						document.getElementById("outputStuff").innerHTML += "Invalid membership";
+				}
+			}
+		</script>
+</head>
+
+<body onload="startMeUp();">
+	<div class="DivContainer">
+
+		<label for="FirstName">First Name</label>
+		<input type="text" class="form-control" id="FirstName" placeholder="Eg. John" />
+		<br>
+		<br>
+
+		<label for="LastName">First Name</label>
+		<input type="text" class="form-control" id="LastName" placeholder="Eg. Smith" />
+		<br>
+		<br>
+
+		<div>Select your month of birth</div>
+		<select id="lstMonths" class="SelType">
+			<option value="1">Jan</option>
+			<option value="2">Feb</option>
+			<option value="3">Mar</option>
+			<option value="4">Apr</option>
+			<option value="5">May</option>
+			<option value="6">Jun</option>
+			<option value="7">Jul</option>
+			<option value="8">Aug</option>
+			<option value="9">Sep</option>
+			<option value="10">Oct</option>
+			<option value="11">Nov</option>
+			<option value="12">Dec</option>
+		</select>
+		<br />
+		<br />
+		<div>Select the day of the month of your birth</div>
+		<select id="lstDays" class="SelType">
+		</select>
+		<br />
+		<br />
+		<div>Select your year of birth</div>
+		<select id="lstYears" class="SelType">
+		</select>
+		<br>
+		<br>
+		<div>Select your Membership type</div>
+		<select id="membershiptype" class="SelType">
+			<option value="1">Fitness Wimp</option>
+			<option value="2">Almost Healthy</option>
+			<option value="3">Healthy</option>
+			<option value="4">Super Jock</option>
+		</select>
+		<br />
+		<br />
+		<input type="button" id="btnSubmit" class="BtnButton" onclick="submitMembership();" value="Submit membership" />
+		<br />
+		<br />
+		<div id="outputStuff" class="DivOutput"></div>
+	</div>
+
+</body>
+</html>

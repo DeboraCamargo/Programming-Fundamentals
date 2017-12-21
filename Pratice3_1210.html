@@ -1,0 +1,70 @@
+<html>
+    <head>
+        <title>Practice3-12 de outubro</title>
+        <style type="text/css">
+       body{
+        background-color: #20D308;
+    }
+    .TxtBox{
+        font-family: Verdana, Arial, Helvetica;
+        font-size: 10pt;
+        color: #F02727;
+        background-color: #90DB9A;
+        border: 1px solid #E20E19;
+    }
+    .button{
+        background-color: #D31515;
+        border: 5px solid #161414;
+        display: inline-block;
+        font-size: 20px;
+        border-radius: 10%;
+    }
+    .button:hover {
+        background-color: #4CAF50; /* Green */
+        color: white;
+    }
+    .div{
+        font-family: Verdana, Arial, Helvetica;
+        font-size: 15pt;
+    }
+        </style>
+        <script language="JavaScript" type="text/JavaScript">
+            
+            function processSentence(){
+                var colours = ["red","brown","gold"];
+                var countColors = [];
+                var words = document.getElementById("txtString").value.split(" ");
+
+//Inicializing the variable, for it is a integer number
+                for(var c=0;c<colours.length;c++){
+                    countColors[c]=0;
+                }
+//Passing thru the words we write and later it was splited
+            for(var i=0; i<words.length; i++){
+//passing thru the color we put, so we can compare both strings
+                for(var b=0; b<colours.length; b++){
+                    // asking if the word of both is equal
+                    if(words[i]===colours[b]){
+                        //if positive, the space related to the color is incremented
+                        countColors[b]++;
+                    }
+                }           
+            }
+     
+//color and countcolor must have the same size by now and the positions are related
+for(var i=0; i<colours.length; i++){
+    document.getElementById("OutputResults").innerHTML+= colours[i]+" = "+countColors[i]+"<br>";
+}
+            }
+
+        </script>
+    </head>
+        <body>
+                <div class="div">Enter a sentence</div>
+                <input type="text" id="txtString" class="TxtBox" maxlength="20" size="20" value="The quick red fox jumped over the gold dog's back" />
+                <br /><br />
+                <input type="button" id="btnProcess" class="Button" onclick="processSentence();" value="Process Sentence"/>
+                <br /><br />
+                <div id="OutputResults"></div>   
+        </body>
+    </html>

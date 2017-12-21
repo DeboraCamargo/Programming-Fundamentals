@@ -1,0 +1,56 @@
+<html>
+
+<head>
+    <title>Test JavaScript </title>
+    <style type="text/css">
+        body {
+            background-color: rgb(41, 41, 194);
+        }
+
+        div {
+            position: absolute;
+            top: 100px;
+            left: 10px;
+            width: 100px;
+            height: 100px;
+            border: 2px;
+            background-color: #07A2FE;
+        }
+
+        input {
+            size: "10px";
+        }
+    </style>
+    <script language="JavaScript" type="text/JavaScript">
+            function init(){
+                document.getElementById("myDiv").innerHTML="Hello debora";
+            }
+
+            function Test(){
+
+                var valuetxt = document.getElementById("txt").value;
+                document.getElementById("myDiv").innerHTML="";
+                switch (valuetxt) {
+                    case "0":
+                    document.getElementById("myDiv").innerHTML="You've typed 0";
+                    break;
+                    case "1":
+                    document.getElementById("myDiv").innerHTML="You've typed 1";
+                    break;
+                    default:
+                    document.getElementById("myDiv").innerHTML="Please Type a valid number";
+                }
+
+            }
+        </script>
+</head>
+
+<body onload="init();">
+    <input type="text" id="txt" class="TxtBox" maxlength="2" value="0" />
+    <br />
+    <br />
+    <input type="button" id="btnTest" class="Button" onclick="Test();" value="Click Here" />
+    <div id="myDiv"></div>
+</body>
+
+</html>

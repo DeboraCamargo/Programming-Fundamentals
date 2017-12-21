@@ -1,0 +1,107 @@
+<html>
+        <head>
+        <title>Debora_Lab1</title>
+        <style type="text/css">
+        body{
+            background-color: #D3085C;
+        }
+        .TxtBox{
+            font-family: Verdana, Arial, Helvetica;
+            font-size: 30pt;
+            color: #F02727;
+            background-color: #90DB9A;
+			border: 1px solid #E20E19;
+        }
+        .button{
+            background-color: #D31515;
+            border: 5px solid #161414;
+            display: inline-block;
+            font-size: 50px;
+            border-radius: 40%;
+        }
+        .button:hover {
+            background-color: #4CAF50; /* Green */
+            color: white;
+        }
+        .div{
+            font-family: Verdana, Arial, Helvetica;
+            font-size: 15pt;
+        }
+        </style>
+      
+      <script language="JavaScript" type="text/JavaScript">
+        //Declaring the variable and assigning the value 0 to it
+        var penaltyAmount=0;
+        
+        //Declaring the variable and assigning the value 0 to it
+        var totalAmountOwing=0;
+        
+        function CalculateBalance() {
+                                //Declaring a variable and assigning to it the data inputed in the textbox
+                                var fullName= document.getElementById("fullName").value;
+                                var address= document.getElementById("address").value;
+                                var city= document.getElementById("city").value;
+                                var province= document.getElementById("province").value;
+                                var accountBalance= document.getElementById("AccountBalance").value;
+                
+                                //Making a variable a Integer type, instead string
+                                    accountBalance= parseInt(accountBalance);
+                                    penaltyAmount=parseInt(penaltyAmount);
+                                    totalAmountOwing=parseInt(totalAmountOwing);
+                    
+                                //    If the account balance met the following conditions(be between 1 and 999) then the penalty variable will save a percentage, which will be charge at final.
+                                    if (accountBalance>0 && accountBalance<1000) {
+                                        penaltyAmount += (accountBalance*0.02);
+                                    }
+                    
+                                //    If the account balance met the following conditions(be equal or greater than 1000) then the penalty variable will save a percentage, which will be charge at final.    if(accountBalance>=1000){
+                                    if(accountBalance>=1000){
+                                        penaltyAmount+= (accountBalance*0.03);
+                                    }
+                    
+                                // The total variable saves the value of account balance plus the charges made(if any)
+                                totalAmountOwing= accountBalance+penaltyAmount;
+                    
+                    
+                                //Concatening and outputing the results
+                                document.getElementById("OutputResults").innerHTML = "";
+                                document.getElementById("OutputResults").innerHTML += "Full Name: " + fullName + "<br>";
+                                document.getElementById("OutputResults").innerHTML += "Address: " + address + "<br>";
+                                document.getElementById("OutputResults").innerHTML += "City: " + city + "<br>";
+                                document.getElementById("OutputResults").innerHTML += "Province: " + province + "<br>";
+                                document.getElementById("OutputResults").innerHTML += "Penalty Amount " + penaltyAmount + "<br>";
+                                document.getElementById("OutputResults").innerHTML += "Account Balance " + accountBalance + "<br>";
+                                document.getElementById("OutputResults").innerHTML += "Total Owed: " + totalAmountOwing + "<br>";
+                                
+                                //In case account balance is 0, then this message will be output
+                                if(accountBalance===0){
+                                    document.getElementById("OutputResults").innerHTML += ( "<br>"+"Thank-you for your payment");
+                                }
+                    }
+    </script>
+    </head>
+        <body>
+                <div class="div">Type your full name</div>
+                <input type="text" id="fullName" class="TxtBox" maxlength="20" size="20" value="No Name" />
+                <br /><br />
+                <div class="div">Type your Address</div>
+                <input type="text" id="address" class="TxtBox" maxlength="20" size="20" value="No Address" />
+                <br /><br />
+                <div class="div">Type your city</div>
+                <input type="text" id="city" class="TxtBox" maxlength="20" size="20" value="London" />
+                <br /><br />
+                <div class="div">Type your Province</div>
+                <input type="text" id="province" class="TxtBox" maxlength="20" size="20" value="Ontario" />
+                <br /><br />
+                <div class="div">What is your Account Balance</div>
+                <input type="text" id="AccountBalance" class="TxtBox" maxlength="20" size="20" value="0.0" />
+                <br /><br />
+                <input type="button" id="btnCalculate" class="Button" onclick="CalculateBalance();" value="Calculate Balance"/>
+                <br /><br />
+                <div id="OutputResults"></div>        
+        </body>
+    </html>
+    
+    
+    
+    

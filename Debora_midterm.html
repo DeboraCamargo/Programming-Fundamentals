@@ -1,0 +1,76 @@
+<html>
+        <head>
+            <title>Midterm</title>
+            <style type="text/css">
+           body{
+            background-color: #20D308;
+        }
+        .TxtBox{
+            font-family: Verdana, Arial, Helvetica;
+            font-size: 10pt;
+            color: #F02727;
+            background-color: #90DB9A;
+            border: 1px solid #E20E19;
+        }
+        .button{
+            background-color: #D31515;
+            border: 5px solid #161414;
+            display: inline-block;
+            font-size: 20px;
+            border-radius: 10%;
+        }
+        .button:hover {
+            background-color: #4CAF50; /* Green */
+            color: white;
+        }
+        .div{
+            font-family: Verdana, Arial, Helvetica;
+            font-size: 15pt;
+        }
+            </style>
+            <script language="JavaScript" type="text/JavaScript">
+                var nameArray = [];
+
+                function ProcessNames(){
+
+                    var txtFirt = document.getElementById("txtFirst1").value;
+                    var txtLast = document.getElementById("txtLast2").value;
+
+                    if(txtFirt===""||txtLast===""){
+                        alert("Please, type a value in the two fields");
+                        return;
+                    }else{
+
+                        nameArray.push(txtFirt+" "+txtLast);
+
+                        //if(nameArray[0]!==""){
+                           // nameArray[nameArray.length]= txtFirt+" "+txtLast;
+
+                            for(var j=nameArray.length-1; j<nameArray.length; j++){
+                            document.getElementById("outputStuff").innerHTML+= nameArray[j]+"<br>";
+                            }
+
+                        //}else{
+                          //  nameArray[0]= txtFirt+" "+txtLast;
+                            //document.getElementById("outputStuff").innerHTML+= nameArray[0]+"<br>";
+                            
+                        //}
+
+                    }
+
+                }
+    
+            </script>
+        </head>
+            <body>
+                    <div class="div">First Name</div>
+                    <input type="text" id="txtFirst1" class="TxtBox" maxlength="20" size="20"  />
+                    <br /><br />
+                    <div class="div">Last Name</div>
+                    <input type="text" id="txtLast2" class="TxtBox" maxlength="20" size="20" />
+                    <br /><br />
+                    <input type="button" id="btnProcess" class="Button" onclick="ProcessNames();" value="Process Names"/>
+                    <br /><br />
+                    <div id="outputStuff"></div>   
+            </body>
+        </html>

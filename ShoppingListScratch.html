@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Shopping List</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous" />
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <style type="text/css">
+        body {
+            background-color: #dddddd;
+        }
+
+        main {
+            max-width: 600px;
+            margin: 10px auto;
+            background-color: #ffffff;
+            padding: 30px 15px;
+        }
+
+        #form1 button {
+            font-size: 18px;
+            width: 90px;
+        }
+    </style>
+
+    <script language="JavaScript" type="text/JavaScript">
+   var ListGroceries = [];
+
+    function SubmitForm(event) {
+        var prod ={
+            name:form1["product"].value,
+            brand:form1["brand"].value,
+            quantity:form1["quantity"].value,
+            comments:form1["comments"].value
+        };
+        ListGroceries.push(prod);
+        $("#output").text(JSON.stringify(ListGroceries));
+        form1.reset();
+        $("#Message").modal({show: true}); 
+        event.preventDefault();
+        return false;  
+    }
+
+   /* function pegarDataAtual(){
+       // data = new Date();
+        //document.getElementById('date').value = data.getDay()+'/'+data.getMonth()+'/'+data.getFullYear();
+
+        var dateControl = document.querySelector('input[type="date"]');
+        dateControl.value = data.getMonth()+'/'+data.getDay()+'/'+data.getFullYear();
+
+    }*/
+
+    </script>
+</head>
+
+<body>
+    <main>
+        <div class="row">
+            <div class="col-md-12">
+                <h3 class="text-center">Create you shooping list</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+                <form id="form1" class="form-horizontal" onsubmit="SubmitForm(event)" >
+                    <div class="form-group">
+                        <label for="product">Product</label>
+                        <input type="text" class="form-control" id="product" placeholder="Fill with your product name" required />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="brand">Brand</label>
+                        <input type="text" class="form-control" id="brand" placeholder="Fill with the brand" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="quantity">Quantity</label>
+                        <input type="number" class="form-control" id="quantity" placeholder="Fill with the wanted quantity" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="date">Date</label>
+                        <input type="date" class="form-control" id="date" maxlength="10" placeholder="Fill with the date" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="comments">Comments</label>
+                        <textarea class="form-control" rows="5" id="comments" placeholder="Fill with the comments"></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Send</button>
+
+                </form>
+            </div>
+        </div>
+        <div id="output">
+        </div>
+    </main>
+
+    <!-- Modal -->
+    <div id="Message" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Well done</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Thank you for partipating</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+
+</html>

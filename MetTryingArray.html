@@ -1,0 +1,78 @@
+<html>
+    <head>
+    <title>Debora_Lab1</title>
+    <style type="text/css">
+    body{
+        background-color: #D3085C;
+    }
+    .TxtBox{
+        font-family: Verdana, Arial, Helvetica;
+        font-size: 15pt;
+        color: #F02727;
+        background-color: #90DB9A;
+        border: 1px solid #E20E19;
+    }
+    .button{
+        background-color: #D31515;
+        border: 5px solid #161414;
+        display: inline-block;
+        font-size: 50px;
+        border-radius: 40%;
+    }
+    .button:hover {
+        background-color: #4CAF50; /* Green */
+        color: white;
+    }
+    .div{
+        font-family: Verdana, Arial, Helvetica;
+        font-size: 15pt;
+    }
+    </style>
+  
+  <script language="JavaScript" type="text/JavaScript">
+    
+    
+    function ShowAnimals() {
+                     
+                            var pets = [];
+                            pets[0]= document.getElementById("Animal1").value;
+                            pets[1]= document.getElementById("Animal2").value;
+                            pets[2]= document.getElementById("Animal3").value;
+
+
+                            for(var b=pets.length; b<10; b++){
+                                var name = b;
+                                //pets[b]="AnimalTest"+name;
+                                pets.push("AnimalTest"+name);
+                            }
+
+                            document.getElementById("OutputResults").innerHTML = "";
+                            for( var i=0; i <pets.length; i++){
+                                document.getElementById("OutputResults").innerHTML += "Animal: " + pets[i] + "<br>";
+                            }
+
+                            for(var a = 0; a<pets.length; a++){
+                                if (pets[a]==="") {
+                                    document.getElementById("OutputResults").innerHTML="Please fill up all fields";
+                                }
+
+                            }
+                                                  
+                }
+</script>
+</head>
+    <body>
+            <div class="div">Type 1° Animal</div>
+            <input type="text" id="Animal1" class="TxtBox" maxlength="20" size="20" value="dog" />
+            <br /><br />
+            <div class="div">Type 2° Animal</div>
+            <input type="text" id="Animal2" class="TxtBox" maxlength="20" size="20" value="cat" />
+            <br /><br />
+            <div class="div">Type 3° Animal</div>
+            <input type="text" id="Animal3" class="TxtBox" maxlength="20" size="20" value="duck" />
+            <br /><br />
+            <input type="button" id="ShowAnimals" class="Button" onclick="ShowAnimals();" value="Show"/>
+            <br /><br />
+            <div id="OutputResults"></div>        
+    </body>
+</html>

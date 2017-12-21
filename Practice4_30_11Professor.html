@@ -1,0 +1,87 @@
+<html>
+	<head>
+		<title>Practice #4</title>
+		<style type="text/css">
+			body {
+				background-color:lightblue;
+			}
+
+			.TxtBox {
+				font-family: Verdana, Arial, Helvetica;
+				font-size: 8pt;
+				color: black;
+				height: 19px;
+				background-color: white;
+				border: 1px solid #07A2FE;
+			}
+			.BtnButton {
+				font-family: Verdana, Arial, Helvetica;
+				font-size: 8pt;
+				color: black;
+				height: 24px;
+				cursor: pointer;
+			}
+		</style>
+		<script language="JavaScript" type="text/JavaScript">
+			function AccountType(first, last, address, city, province) {
+				var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+				var days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+				
+				this.first = first;
+				this.last = last;
+				this.address = address;
+				this.city = city;
+				this.province = province;
+				
+				var now = new Date();
+				// DDD MMM dd, YYYY
+				// Thu Nov 30, 2017
+				var xDay = now.getDay();
+				var xMonth = now.getMonth();
+				
+				this.createDate = days[xDay] + " " + months[xMonth] + " " + now.getDate() + ", " + now.getFullYear();
+			}
+			
+			function addAccount() {
+				var first = document.getElementById("txtFirst").value;
+				var last = document.getElementById("txtLast").value;
+				var address = document.getElementById("txtAddress").value;
+				var city = document.getElementById("txtCity").value;
+				var province = document.getElementById("txtProvince").value;
+				
+				var account = new AccountType(first, last, address, city, province);
+				
+				var text = account.first + "<br>" + account.last + "<br>" + account.address + "<br>" + account.city + "<br>" + account.province + "<br>" + account.createDate;
+				
+				document.getElementById("outputStuff").innerHTML = text;
+			}
+		</script>
+	</head>
+	<body>
+		<div>First Name</div>
+		<input type="text" id="txtFirst" class="TxtBox" style="width:200px" value="Sherlock" />
+		<br /><br />
+		<div>Last Name</div>
+		<input type="text" id="txtLast" class="TxtBox" style="width:200px" value="Holmes" />
+		<br /><br />
+		<div>Address</div>
+		<input type="text" id="txtAddress" class="TxtBox" style="width:300px" value="221 B Baker Street" />
+		<br /><br />
+		<div>City</div>
+		<input type="text" id="txtCity" class="TxtBox" style="width:100px" value="London" />
+		<br /><br />
+		<div>Province</div>
+		<input type="text" id="txtProvince" class="TxtBox" style="width:50px" value="UK" />
+		<br /><br />
+		<input type="button" id="btnAddAccount" class="BtnButton" onclick="addAccount();" value="Add Account"/>
+		<br /><br />
+		<div id="outputStuff"></div>
+		
+		
+		
+		
+		
+		
+		
+	</body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Santa Claus Evaluation</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous" />
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <style type="text/css">
+        body {
+            background-color: #dddddd;
+
+        }
+
+        main {
+            max-width: 600px;
+            margin: 10px auto;
+            background-color: #ffffff;
+            padding: 30px 15px;
+        }
+
+        #outputNaughty {
+            background-color: #ce1010;
+            position: absolute;
+            left: 120px;
+            top: 220px;
+            width: 150px;
+            height: 100px;
+            border: 1px solid rgb(131, 14, 226);
+
+        }
+
+        #outputNice {
+            background-color: #1acc46;
+            position: absolute;
+            left: 290px;
+            top: 220px;
+            width: 150px;
+            height: 100px;
+            border: 1px solid rgb(131, 14, 226);
+        }
+    </style>
+
+    <script language="JavaScript" type="text/JavaScript">
+
+// fill the list on the load of the page
+    function init(){
+        document.getElementById("myList").options[0] = new Option("****", 1);
+		document.getElementById("myList").options[1] = new Option("Naughty", 2);
+		document.getElementById("myList").options[2] = new Option("Nice", 3);
+    }
+
+//Get the item selected on the list and then take it to the next step
+    function selectionMade() {
+                var txtFirt = document.getElementById("FirstName").value;
+                var txtLast = document.getElementById("LastName").value;
+				var ref = document.getElementById("myList");
+				var x = ref.selectedIndex;
+				var listText = ref.options[x].text;
+				var listValue = ref.options[x].value;
+				ShowResult(listText, txtFirt, txtLast);
+			}
+
+//Concatenate the strings(names) and with the value selected on the list, it show the result in the appropriated div
+            function ShowResult(param,txtFirt, txtLast){
+
+        if(txtFirt ===""||txtLast===""){
+                 alert("Insert the names");
+                 document.getElementById("myList").selectedIndex = 0;
+                 return;
+        }
+                var text = param.value;
+				
+				if (text === undefined){
+					text = param;
+				}
+
+                if(text === "Naughty"){
+                    document.getElementById("outputNaughty").innerHTML += " "+txtFirt+" "+txtLast+"<br>";
+
+                }else if(text === "Nice"){
+                    document.getElementById("outputNice").innerHTML +=  " "+ txtFirt+" "+txtLast+"<br>";
+
+                }
+
+                document.getElementById("myList").selectedIndex = 0;
+            }
+
+    </script>
+</head>
+
+<body onload="init()">
+    <main>
+        <div class="row">
+            <div class="col-md-12">
+                <h3 class="text-center">Santa's Evaluation Form</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+                <form id="form1" class="form-horizontal">
+                    <div class="form-group">
+                        <label for="FirstName">First Name *</label>
+                        <input type="text" class="form-control" id="FirstName" placeholder="Fill with kid's first name" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="LastName">Last Name *</label>
+                        <input type="text" class="form-control" id="LastName" placeholder="Fill with kid's last name" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="sel1">Select list:</label>
+                        <select class="form-control" id="myList" class="SelType" onchange="selectionMade();"></select>
+                    </div>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <div class="form-group" id="outputNaughty"></div>
+                    <div class="form-group" id="outputNice"></div>
+
+                </form>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>

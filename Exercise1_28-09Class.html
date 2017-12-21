@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Exercise 1 in class</title>
+    <meta charset="utf-8" />
+    <style type="text/css">
+     .body {  
+            background-color: #21DF1A;
+        }
+        .TxtBox {
+            font-family: Verdana, Arial, Helvetica;
+            font-size: 10pt;
+            color: #20D329;
+            background-color: #F31818;
+			border: 1px solid #4114E2;
+        }
+    </style>
+    <script>
+        function calculateTotal(a, b){
+            return(a - b);
+        }
+    </script>
+</head>
+<body class="body">
+    <div id="divLabel" class="txt">Enter your Name:</div>
+    <input type="text" id="txtBox" class="TxtBox" maxlength="50" size="20" value="Debora is here" />
+    <br /><br />
+    <div id="divLabel" class="txt">Enter your the year you was born:</div>    
+    <input type="text" id="a" class="TxtBox" maxlength="50" size="20" name="a" />
+    <br /><br />
+    <div id="divLabel" class="txt">Enter the present year:</div>    
+    <input type="text" id="b" class="TxtBox" maxlength="50" size="20" name="b" />
+
+    <input type="button" class="button" id="btnSubmit" onclick="calculateTotal();" value="Submit"/>
+
+
+
+
+
+</body>
+</html>
